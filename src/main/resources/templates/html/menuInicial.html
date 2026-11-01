@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <title>Programando Fodacci</title>
         <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
     </head>
     <body>
-    <h1 class="display-1 fw-bold">Teste</h1>
-<body>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}">
+
+    </script>
+        <div class="container text-center">
+            <h1 class="display-1 fw-bold">[[${titulo}]]</h1>
+            <h3 class="display-3">[[${descricao}]]</h3>
+            <a href="/conta">Criar conta</a>
+        </div>
+    </body>
 </html>

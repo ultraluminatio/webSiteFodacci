@@ -1,0 +1,12 @@
+.formulario-criacao{
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    border: black solid 5px;
+    border-radius: 50px;
+    width: 90%;
+}
+.link-voltar{
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
