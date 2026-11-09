@@ -1,24 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Programando Fodacci</title>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{/css/estilos.css}">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Programando Fodacci</title>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.8/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/css/estilos.css}">
+
+    </head>
     <body>
-        <a class="link-voltar link" href="#"><button type="button" class="btn-lg btn-solid theme-inverse">Voltar</button></a>
-        <form class="form formulario-criacao" action="/conta/criarConta" method="post">
-            <h1>Criando uma conta</h1>
-            <div class="container text-center">
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}">
+
+        </script>
+
+        <form class="form" action="/conta/criarConta" th:object="${conta}" method="post">
+            <div class="container">
+
+                <a class="link-voltar link" href="#">
+                    <button type="button" class="btn-lg btn-solid theme-inverse">Voltar</button>
+                </a>
+                <h1>Criando uma conta</h1>
+                <hr>
                 <div class="row">
-                    <label>Nome</label>
+                    <div class="col-md-5 form-group">
+                        <label class="form-label">Nick</label>
+                        <input class="form-control" type="text" placeholder="Nick de jogador" th:field="*{nome}">
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-5 form-group">
+                        <label class="form-label">Email</label>
+                        <input class="form-control" type="email" placeholder="ex.: usuario@gmail.com" th:field="*{email}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 form-group">
+                        <label class="form-label">Telefone</label>
+                        <input class="form-control" type="tel" placeholder="+55 (99) 99999-9999" th:field="*{telefone}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 form-group">
+                        <label class="form-label" for="password3">Senha</label>
+                        <input id="password3" class="form-control" type="password" placeholder="" th:field="*{password}">
+                        <div class="strength-bar" data-bs-strength></div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-5">
                         <button type="submit" class="col btn-outline theme-success btn-lg">Criar</button>
                     </div>
-                    <div class="col">
+                    <div class="col-md-5">
                         <button type="reset" class="col btn-subtle theme-danger btn-lg">Resetar</button>
                     </div>
                 </div>

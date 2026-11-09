@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
+import jakarta.validation.constraints.Size;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.LocalDateTime;
@@ -21,9 +22,9 @@ public class Conta {
     @Getter
     private Long id;
 
-    @Column(name = "name", nullable = false)
     @Getter
     @Setter
+    @Size(min=5, max = 45, message = "O seu nickname só pde ter de 5 até 45 caracteres")
     private String nome;
 
     @Column(name = "email", nullable = false, unique = true)
@@ -34,10 +35,15 @@ public class Conta {
     @CreatedDate
     @Getter
     @Column(name = "data_registro", nullable = false)
-    private LocalDateTime data;
+    private LocalDateTime data = LocalDateTime.now();
 
     @Column(name ="telefone", nullable = false, unique = true)
     @Getter
     @Setter
     private String telefone;
+
+    @Column(name = "password", nullable = false)
+    @Getter
+    @Setter
+    private String password;
 }

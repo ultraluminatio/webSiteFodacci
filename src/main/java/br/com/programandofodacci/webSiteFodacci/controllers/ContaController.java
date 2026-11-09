@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/conta")
-public class ContaController {
+public class  ContaController {
 
     @Autowired
     private ContaRepository contaRepository;
@@ -24,15 +24,23 @@ public class ContaController {
 
 
     @GetMapping("")
-    public String menuCriarConta(Model modelo){
-        modelo.addAttribute("","");
-        return "html/criacaoConta";
+    public ModelAndView menuCriarConta(Conta conta){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("html/criacaoConta");
+        mv.addObject("conta", new Conta());
+        return mv;
     }
 
     @PostMapping("/criarConta")
     public ModelAndView criarConta(Conta conta){
         ModelAndView mv = new ModelAndView();
         contaRepository.save(conta);
+        return mv;
+    }
+
+    @PostMapping("/jsonCriarConta")
+    public ModelAndView salvarConta(){
+        ModelAndView mv = new ModelAndView();
         return mv;
     }
 
